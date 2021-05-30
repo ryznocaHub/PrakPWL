@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prak PWL Mg3</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/d808726940.js" crossorigin="anonymous"></script>
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="adminlte.min.css">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html">Praktikum <b>PWL 03</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Registrasi form dengan validasi selenium</p>
+
+        <div class="input-group mb-3">
+          <input type="text" id="username" class="form-control" placeholder="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <p class="text-danger" id="statusUsername"></p>
+        <div class="input-group mb-3">
+          <input type="password" id="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <p class="text-danger" id="statusPassword"></p>
+        <div class="input-group mb-3">
+          <input type="password" id="validasiPassword" class="form-control" placeholder="Masukkan kembali Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <p class="text-danger" id="status"></p>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block" onclick="handleSubmit()">Daftar</button>
+          </div>
+          <!-- /.col -->
+        </div>
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- Bootstrap 4 -->
+<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+<!-- AdminLTE App -->
+<script src="adminlte.min.js"></script>
+<script>
+  function handleSubmit(){
+    // handle input username
+    let input = document.getElementById("username").value;
+    if(input.length > 0){
+      if(input.length < 10){
+        document.getElementById("status").innerText = "Username harus diisi minimal 10 huruf";
+      }else if(input == "fikrihalim" || input == "fikrihalimch"){
+        document.getElementById("status").innerText = "Username sudah digunakan, silahkan masukkan username lain";
+      }else{
+        // handle input password
+        let inputpw = document.getElementById("password").value;
+        if(inputpw.length > 0){
+          if(inputpw.length < 10){
+            document.getElementById("status").innerText = "Password harus diisi minimal 10 huruf";
+          }else{
+            //handle input validasi
+            let inputVal = document.getElementById("password").value;
+            let validasi = document.getElementById("validasiPassword").value;
+            if(inputVal != validasi){
+              document.getElementById("status").innerText = "Password tidak sama";
+            }else{
+              document.getElementById("status").innerText = "";
+            }
+          }
+        }else{
+          document.getElementById("status").innerText = "Password tidak boleh kosong";
+        }
+      }
+    }else{
+      document.getElementById("status").innerText = "Username tidak boleh kosong";
+    }
+  }
+</script>
+</body>
+</html>
