@@ -1,0 +1,49 @@
+{
+    "test_case" : [
+        {
+            "testcase_name": "field nama kosong",
+            "data": {
+                "username": "",
+                "password": "fikrihalimch", 
+                "validasi": "fikrihalimch"
+            },
+            "expected" : "Username tidak boleh kosong"
+        },
+        {
+            "testcase_name": "field nama kurang dari 10 huruf",
+            "data": {
+                "username": "fikri",
+                "password": "fikrihalimch", 
+                "validasi": "fikrihalimch"
+            },
+            "expected" : "Username harus diisi minimal 10 huruf"
+        },
+        {
+            "testcase_name": "username sudah digunakan",
+            "data": {
+                "username": "fikrihalimch",
+                "password": "fikrihalimch", 
+                "validasi": "fikrihalimch"
+            },
+            "expected" : "Username sudah digunakan, silahkan masukkan username lain"
+        },
+        {
+            "testcase_name": "field password kosong",
+            "data": {
+                "username": "pemrogramanweb",
+                "password": "", 
+                "validasi": ""
+            },
+            "expected" : "Password tidak boleh kosong"
+        },
+        {
+            "testcase_name": "field validasi password berbeda",
+            "data": {
+                "username": "pemrogramanweb",
+                "password": "pemrogramanweb", 
+                "validasi": "pemrograman"
+            },
+            "expected" : "Password tidak sama"
+        }
+    ]
+}
